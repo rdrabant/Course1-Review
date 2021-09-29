@@ -16,6 +16,8 @@ if(fishVotes === null){
     localStore.setItem('fish', 0);
 }
 
-function voteDoggo(){
-    console.log("doggo vote called");
+function voteDoggo(idName){
+
+    console.log(idName + " vote called");
 }
+
