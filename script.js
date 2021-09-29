@@ -22,34 +22,36 @@ let doggoVotes = localStore.getItem('doggo');
 let catVotes = localStore.getItem('catto')
 let fishVotes = localStore.getItem('fisho')
 
-if(doggoVotes === null){
+if(doggoVotes == null){
     localStore.setItem('doggo', 0);
 }else{
-    doggoVotes = parseInt("doggo");
+    doggoVotes = parseInt(doggoVotes);
     if(isNaN(doggoVotes)){
         doggoVotes = 0;
     }
 }
 
-if(catVotes === null){
+if(catVotes == null){
     localStore.setItem('catto', 0);
 }else{
-    catVotes = parseInt("catto");
+    catVotes = parseInt(catVotes);
     if(isNaN(catVotes)){
         catVotes = 0;
     }
 }
 
-if(fishVotes === null){
+if(fishVotes == null){
     localStore.setItem('fisho', 0);
 }else{
     
-    fishVotes = parseInt("fisho");
+    fishVotes = parseInt(fishVotes);
+
     if(isNaN(fishVotes)){
         fishVotes = 0;
     }
 }
 
+console.log("FISH VOTES: " + fishVotes);
 
 let dogTotalEl = document.querySelector("#doggo-votes");
 let catTotalEl = document.querySelector("#catto-votes");
