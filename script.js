@@ -1,8 +1,55 @@
 let localStore = window.localStorage;
 
+let doggoItem = document.querySelector("#doggo");
+let doggoButton = document.createElement("button");
+doggoButton.textContent = "Vote for Doggo";
+doggoButton.addEventListener("click", function(){ vote("doggo")});
+doggoItem.append(doggoButton);
+
+let cattoItem = document.querySelector("#catto");
+let cattoButton = document.createElement("button");
+cattoButton.textContent = "Vote for Cat";
+cattoButton.addEventListener("click", function(){ vote("catto")});
+cattoItem.append(cattoButton);
+
+let fishItem = document.querySelector("#fish");
+let fishButton = document.createElement("button");
+fishButton.textContent = "Vote for Cat";
+fishButton.addEventListener("click", function(){ vote("fisho")});
+fishItem.append(fishButton);
+
 let doggoVotes = localStore.getItem('doggo');
 let catVotes = localStore.getItem('catto')
 let fishVotes = localStore.getItem('fisho')
+
+if(doggoVotes === null){
+    localStore.setItem('doggo', 0);
+}else{
+    doggoVotes = parseInt("doggo");
+    if(isNaN(doggoVotes)){
+        doggoVotes = 0;
+    }
+}
+
+if(catVotes === null){
+    localStore.setItem('catto', 0);
+}else{
+    catVotes = parseInt("catto");
+    if(isNaN(catVotes)){
+        catVotes = 0;
+    }
+}
+
+if(fishVotes === null){
+    localStore.setItem('fisho', 0);
+}else{
+    
+    fishVotes = parseInt("fisho");
+    if(isNaN(fishVotes)){
+        fishVotes = 0;
+    }
+}
+
 
 let dogTotalEl = document.querySelector("#doggo-votes");
 let catTotalEl = document.querySelector("#catto-votes");
@@ -12,18 +59,6 @@ let fishTotalEl = document.querySelector("#fish-votes");
 dogTotalEl.textContent = doggoVotes;
 catTotalEl.textContent = catVotes;
 fishTotalEl.textContent = fishVotes;
-
-if(doggoVotes === null){
-    localStore.setItem('doggo', 0);
-}
-
-if(catVotes === null){
-    localStore.setItem('catto', 0);
-}
-
-if(fishVotes === null){
-    localStore.setItem('fisho', 0);
-}
 
 function vote(idName){
 
