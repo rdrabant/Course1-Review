@@ -8,6 +8,11 @@ let dogTotalEl = document.querySelector("#doggo-votes");
 let catTotalEl = document.querySelector("#catto-votes");
 let fishTotalEl = document.querySelector("#fish-votes");
 
+//init totals
+dogTotalEl.textContent = doggoVotes;
+catTotalEl.textContent = catVotes;
+fishTotalEl.textContent = fishVotes;
+
 if(doggoVotes === null){
     localStore.setItem('doggo', 0);
 }
@@ -28,7 +33,7 @@ function vote(idName){
             doggoVotes = doggoVotes +1;
             localStore.setItem("doggo", doggoVotes)
         }else if(idName == "catto"){
-            catVotes = catVotes +1;
+            catVotes = catVotes + 1;
             localStore.setItem("catto", catVotes)
         }else if(idName == "fisho"){
             fishVotes = fishVotes +1;
